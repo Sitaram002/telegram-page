@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joining Telegram Channel...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .logo {
+            width: 70px;
+            height: 70px;
+            background: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+        .logo svg {
+            fill: #ffffff;
+            width: 38px;
+            height: 38px;
+        }
+        h1 {
+            font-size: 22px;
+            color: #222222;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .btn {
+            display: block;
+            background-color: #0088cc;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,136,204,0.3);
+        }
+        .btn:hover {
+            background-color: #006699;
+        }
+        .timer-text {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.38-.49 1.07-.75 4.19-1.82 6.99-3.02 8.4-3.61 4-.17 4.83 2.55 4.67 2.7z"/>
+            </svg>
+        </div>
+        <h1>Official Telegram Channel</h1>
+        <p>हमारे ऑफिसियल टेलीग्राम चैनल से जुड़ने के लिए नीचे दिए गए बटन पर क्लिक करें।</p>
+        
+        <!-- Telegram Link Replace Here -->
+        <a id="tgLink" href="https://t.me/workfromhome_jo" class="btn">Join Telegram Now</a>
+        
+        <div class="timer-text">
+            Auto redirecting in <span id="countdown">3</span> seconds...
+        </div>
+    </div>
+
+    <script>
+        // 1. Change this to your Telegram Link
+        const telegramURL = "https://t.me/workfromhome_jo"; 
+        
+        document.getElementById("tgLink").href = telegramURL;
+
+        // Auto Redirect Logic
+        let seconds = 3;
+        const countdownEl = document.getElementById("countdown");
+
+        const timer = setInterval(() => {
+            seconds--;
+            if (countdownEl) countdownEl.innerText = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = telegramURL;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
